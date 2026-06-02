@@ -12,11 +12,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
 
   final student = const Student(
-    name: "Aminata Diallo",
-    email: "aminata@gmail.com",
+    name: "André Nang",
+    email: "andre@gmail.com",
     major: "Informatique",
     level: "Bachelor 3",
   );
+
+  bool isDarkMode = false;
 
   void contactStudent() {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -31,8 +33,24 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor:
+        isDarkMode ? Colors.grey.shade900 : Colors.grey.shade100,
       appBar: AppBar(
         title: const Text("Profil Étudiant"),
+        actions: [
+          IconButton(
+            icon: Icon(
+              isDarkMode
+                  ? Icons.light_mode
+                  : Icons.dark_mode,
+            ),
+            onPressed: () {
+              setState(() {
+                isDarkMode = !isDarkMode;
+              });
+            },
+          ),
+        ],
       ),
       body: Center(
         child: Padding(

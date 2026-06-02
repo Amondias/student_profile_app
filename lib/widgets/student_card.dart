@@ -13,6 +13,7 @@ class StudentCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 5,
+      color: const Color.fromARGB(255, 161, 161, 161),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
